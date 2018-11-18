@@ -1,0 +1,4 @@
+login = {
+    'password' : 'REPLACE_WITH_YOUR__SONGKICK_PASSWORD',
+    'username' : 'REPLACE_WITH_YOUR_SONGKICK_USERNAME_OR_EMAIL'
+}
