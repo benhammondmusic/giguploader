@@ -12,11 +12,16 @@ from pandas import ExcelFile
 import time
 import datetime, xlrd
 
-#import password and login from config.py
-# BE SURE TO UPDATE YOUR LOGIN.PY FILE WITH REAL PASSWORD AND LOGIN
+# BE SURE TO UPDATE YOUR LOGIN.PY FILE WITH CREDENTIALS
 import login
-username = login.login['username']
-password = login.login['password']
+username = login.login['songkick_username']
+password = login.login['songkick_password']
+testMode = login.testMode # 0 means not test mode, ie actually submit data to website. 1 means don't submit data, but run otherwise
+xls_file = login.login['xls_file']
+
+# LOAD PYTHON FILES TO HANDLE EACH GIG LISTING SERVICE
+import email_bandsintown
+
 
 #*************************************
 login_url = "https://accounts.songkick.com/session/new?cancel_url=https%3A%2F%2Ftourbox.songkick.com%2Fhome&success_url=https%3A%2F%2Ftourbox.songkick.com%2F&source_product=tourbox"
@@ -25,7 +30,6 @@ addVenue_url = 'https://www.songkick.com/venues/new'
 pauseTime = 8
 duplicateWarning = 'Oops, we couldnt add that event, please scroll down for more details.'
 gigSameDay = 'We might have that concert already. Is this the one you mean?'
-testMode = 1 # 0 means not test mode, ie actually submit data to website. 1 means don't submit data, but run otherwise
 #*************************************
 
 
@@ -137,16 +141,23 @@ def getWarningText(aErrorDiv)   :
 #*************************************#*************************************
 #START DOING STUFF
 
-if testMode:
-    print "RUNNING IN TEST MODE: New Venues will be created, but gigs will not."
+#clear the text output
+for i in range(5):
+    print "\n."
 
-for i in range(10):
-    print "\n"
+
+if testMode:
+    print "RUNNING IN TEST MODE: \n FOR BANDSINTOWN: New Venues will be created, but gigs will not."
+
+
+# Send email to BANDSINTOWN FIRST
+email_bandsintown.send_email()
+
 
 
 # READ XLS FILE WITH GIG INFO
 print ("Reading Gig File: ")
-file = r'bit-upload.xls'
+file = xls_file
 df = pd.read_excel(file)
 
 # SET HEADLESS OPTION FOR ALL FUTURE BROWSERS

@@ -1,0 +1,23 @@
+
+USER MUST remove the ".example" from this file name leaving only "settings.py"
+# store sensitive Login info in this file
+# THIS FILE IS .GITIGNORED
+
+
+# APP SETTINGS
+testMode = True #toggle real gig submissions vs just TESTING
+login = {
+    # Location of .xls file containing gig listing (in special Bandsintown format)
+    'xls_file' : 'bit-upload.xls',
+
+    # SONGKICK SETTINGS
+    'songkick_password' : 'YOUR_SONGKICK_PASSWORD',
+    'songkick_username' : 'YOUR_SONGKICK_EMAIL_OR_USERNAME',
+
+    # GMAIL SETTING (to email file to BandsInTown),
+    'gmail_username' : 'YOUR_GMAIL_ADDRESS',
+    'gmail_password' : 'YOUR_GMAIL_PASSWORD',
+
+    # BANDS IN TOWN SETTINGS
+    'bandsintown_bulkupload_email' : 'tourinfo@bandsintown.com' #don't change unless BIT updates the service
+}
