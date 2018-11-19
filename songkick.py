@@ -13,7 +13,7 @@ import time
 import datetime, xlrd
 
 #import password and login from config.py
-# BE SURE TO UPDATE YOUR CONFIG.PY FILE WITH REAL PASSWORD AND LOGIN
+# BE SURE TO UPDATE YOUR LOGIN.PY FILE WITH REAL PASSWORD AND LOGIN
 import login
 username = login.login['username']
 password = login.login['password']
