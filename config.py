@@ -1,4 +1,4 @@
 login = {
-    'password' : 'test1',
-    'username' : 'test1'
+    'password' : 'test2',
+    'username' : 'test2'
 }
