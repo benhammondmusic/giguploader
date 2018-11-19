@@ -10,6 +10,7 @@ FUTURE UPDATES/IDEAS:
 - make GUI
 - make user-friendly gig input section to generate the properly formatted XLS file
 - make script to read from google calendar and auto-add gigs to the XLS file
+- remove line from xls file when successful?
 
 
 

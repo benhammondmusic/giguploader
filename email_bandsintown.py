@@ -26,8 +26,9 @@ you = login.login['bandsintown_bulkupload_email']
 def send_email ():
     #email yourself in testmode rather than actually sending test gig xls to BandsInTown
     if testMode:
-        you = me
         print "TEST MODE: emailing {} instead of {}".format(me, you)
+        you = me
+
 
     # instance of MIMEMultipart
     print 'Assembling the email for BandsInTown...'
