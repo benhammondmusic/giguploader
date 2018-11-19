@@ -3,9 +3,9 @@ Automate uploading gigs to Songkick from an .xls file (formatted for BandsInTown
 
 PROBLEM: Songkick annoyingly doesn't have an option to bulk-upload multiple gigs. Entering each gig via web interface is tedious and repetitive.
 
-SOLUTION: Automate the process using Python. Bonus: program reads gig info in from an .xls file formatted for mass uploading by email to Bandsintown, saving any work on submitting gigs to as many places as possible. 
+SOLUTION: Automate the process using Python. Bonus: program reads gig info in from an .xls file formatted for mass uploading by email to Bandsintown, saving any work on submitting gigs to as many places as possible.
 
-PROCESS: 
+PROCESS:
 - Read in gigs from a local, user supplied excel (.xls) file.
 - Create headless browser and log in to Songkick. Username and Password MUST be supplied by the user in the "config.py" file.
 - Iterate over all gigs and manually submit gig info to Songkick.
@@ -19,12 +19,7 @@ SETUP/OPERATION: User must complete the following tasks to operate program
 
 KNOWN ISSUES:
 -
+-
 
 FUTURE UPDATES/IDEAS:
 - automatically email the file to Bandsintown?
-
-
-
-
-
-
