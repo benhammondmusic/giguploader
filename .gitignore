@@ -1,5 +1,6 @@
 #IGNORE LOCAL PASSWORD FILE
 config.py
+login.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
