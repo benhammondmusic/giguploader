@@ -13,23 +13,36 @@ from email import encoders
 
 
 #Load app settings
-import login
-testMode = login.testMode
-filename = login.login['xls_file']
-gmail_password = login.login['gmail_password']
-me = login.login['gmail_username']
-you = login.login['bandsintown_bulkupload_email']
+import settings
 
 
 ### EMAIL THE XLS FILE WITH GIGS TO BandsInTown SPECIAL BULK UPLOAD ADDRESS
 #*************************************
 def send_email ():
+
+    #clear the text output
+    for i in range(5):
+        print "\n."
+
+    testMode = settings.testMode
+    filename = settings.login['xls_file']
+    gmail_password = settings.login['gmail_password']
+    me = settings.login['gmail_username']
+    you = settings.login['bandsintown_bulkupload_email']
+
+
+    print "\n\n_________________________"
+    print "_______BANDSINTOWN_______"
+    print "_________________________\n"
+
     #email yourself in testmode rather than actually sending test gig xls to BandsInTown
     if testMode:
-        print "TEST MODE: emailing {} instead of {}".format(me, you)
+        print "TEST MODE: emailing from:{} to:{} instead of to:{}\n".format(me, me, you)
         you = me
 
-
+    #CC the sender
+    cc = me
+    
     # instance of MIMEMultipart
     print 'Assembling the email for BandsInTown...'
 
@@ -37,6 +50,7 @@ def send_email ():
     msg['Subject'] = ''
     msg['From'] = me
     msg['To'] = you
+    msg['Cc'] = me
     msg.preamble = 'You will not see this in a MIME-aware mail reader.\n'
 
     # string to store the body of the mail
@@ -45,7 +59,7 @@ def send_email ():
     # attach the body with the msg instance
     msg.attach(MIMEText(body, 'plain'))
 
-    print 'Loading the .XLS file...'
+    print 'Loading the .XLS file...',
     # open the file to be sent
     attachment = open(filename, "rb")
 
@@ -64,11 +78,11 @@ def send_email ():
     # attach the instance 'p' to instance 'msg'
     msg.attach(p)
 
-    print 'Contacting Gmail Server...'
+    print 'Contacting Gmail Server...',
     # creates SMTP session
     s = smtplib.SMTP('smtp.gmail.com', 587)
 
-    print 'Securely...'
+    print 'Securely...',
     # start TLS for security
     s.starttls()
 
@@ -83,11 +97,14 @@ def send_email ():
 
     # sending the mail
     print 'Sending from {} to {}...'.format(me, you)
-    s.sendmail(me, you, text)
+    s.sendmail(me, [you,cc], text)
 
 
     # terminating the session
     print 'Closing email...'
     s.quit()
+    print "______________________"
+    print "______________________"
+    print "______________________"
     return;
     #*************************************
