@@ -13,11 +13,11 @@ Each service has a different gig submission interface and process requiring mult
 ## PROCESS:
 
 - Read in gigs from a local, user supplied excel (.xls) file.
-- Create headless browser and log in to Songkick. Username and Password MUST be supplied by the user in the `config.py` file.
-- Iterate over all gigs and manually submit gig info to Songkick.
-- If venue doesn't exist on Songkick database, this program will create a new venue. It will then keep retrying to add the gig at that venue until the venue appears in the database (sometimes up to a minute).
-- If the band already has a gig that day but at a different time/venue, Songkick questions you. This program assumes it's correct (that you have 2 shows the same day) and continues to submit the second gig.
-- If the gig has already been added (same date/time/venue) Songkick alerts you, and this program does NOT add the duplicate gig.
+- Create headless browser and log in each service. Username and Password MUST be supplied by the user in their private, local `config.py` file.
+- Iterate over all gigs and manually submit gig info.
+- If venue doesn't exist on the service's venue database, GigUploader will create a new venue. It will then keep retrying to add the gig at that venue until the venue appears in the database (sometimes up to a minute).
+- If the band already has a gig that day but at a different time/venue, the services may question you. GigUploader assumes it's correct (that you have 2 shows the same day) and continues to submit the second gig.
+- If the gig has already been added (same date/time/venue) you may be alerted; GigUploader does NOT add the duplicate gig.
 
 ## FUTURE IDEAS:
 
@@ -35,4 +35,4 @@ Each service has a different gig submission interface and process requiring mult
 
 ## KNOWN ISSUES:
 
-- All websites frequently alter their code, therefor this (and any other web-scraping process) is extremely fragile. It may require some baby-sitting and adjustments to keep it functional. Further, web-scraping in general is ethically nebulous, and may be illegal in some situations. It is up to you to confirm you are operating this script in a way that doesn't harm others.
+- Websites frequently alter their code, therefor this (and any other web-scraping process) is extremely fragile. It may require some baby-sitting and adjustments to keep it functional. Further, web-scraping in general is ethically nebulous, and may be illegal in some situations. It is up to you to confirm you are operating this script in a way that doesn't harm others.
