@@ -1,6 +1,6 @@
 # GIG UPLOADER
 
-> Automate gig promotion by programatically submitting to multiple online event services. User inputs details into a local .xls spreadsheet, and the data is uploaded publically to Songkick, BandsInTown, Strumsy, and privately to Dubsado. Further integration propgates this information to Spotify, Google, a user's Google Calendar, and many more locations.
+> Automate gig promotion by programmatically submitting to multiple online event services. User inputs details into a local .xls spreadsheet, and the data is uploaded publicly to Songkick, BandsInTown, Strumsy, and privately to Dubsado. Further integration propagates this information to Spotify, Google, a user's Google Calendar, and many more locations.
 
 ## PROBLEM:
 
@@ -13,7 +13,7 @@ Each service has a different gig submission interface and process requiring mult
 ## PROCESS:
 
 - Read in gigs from a local, user supplied excel (.xls) file.
-- Create headless browser and log in to Songkick. Username and Password MUST be supplied by the user in the "config.py" file.
+- Create headless browser and log in to Songkick. Username and Password MUST be supplied by the user in the `config.py` file.
 - Iterate over all gigs and manually submit gig info to Songkick.
 - If venue doesn't exist on Songkick database, this program will create a new venue. It will then keep retrying to add the gig at that venue until the venue appears in the database (sometimes up to a minute).
 - If the band already has a gig that day but at a different time/venue, Songkick questions you. This program assumes it's correct (that you have 2 shows the same day) and continues to submit the second gig.
@@ -35,4 +35,4 @@ Each service has a different gig submission interface and process requiring mult
 
 ## KNOWN ISSUES:
 
-- All websites frequently alter their code, therefor this and any other web-scraping process is extremely fragile. It may require some baby-sitting and adjustments to keep it functional. Further, web-scraping in general is ethically nebulous, and may be illegal in some situations. It is up to you to confirm you are operating this script in a way that doesn't harm others.
+- All websites frequently alter their code, therefor this (and any other web-scraping process) is extremely fragile. It may require some baby-sitting and adjustments to keep it functional. Further, web-scraping in general is ethically nebulous, and may be illegal in some situations. It is up to you to confirm you are operating this script in a way that doesn't harm others.
